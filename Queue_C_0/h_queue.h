@@ -1,8 +1,8 @@
 /*
-* ×÷Õß£ºsilverHugh
-* Ê±¼ä£º2015Äê1ÔÂ28ÈÕ
-*ÄÚÈİ£º¶ÓÁĞÊµÏÖ
-* ÓïÑÔ£ºCÓïÑÔ
+* ä½œè€…ï¼šsilverHugh
+* æ—¶é—´ï¼š2015å¹´1æœˆ28æ—¥
+*å†…å®¹ï¼šé˜Ÿåˆ—å®ç°
+* è¯­è¨€ï¼šCè¯­è¨€
 * */
 #include <stdbool.h>
 #include <stdio.h>
@@ -20,15 +20,15 @@ struct Queue{
 
 typedef struct Queue Queue;
 
-void init(Queue* queue);                                     //³õÊ¼»¯¶ÓÁĞ
-bool enqueue(Queue *queue, int en_data);   //Èë¶ÓÒ»¸öÕûĞÍÊı
+void init(Queue* queue);                                     //åˆå§‹åŒ–é˜Ÿåˆ—
+bool enqueue(Queue *queue, int en_data);   //å…¥é˜Ÿä¸€ä¸ªæ•´å‹æ•°
 bool enqueue_array(Queue *queue,
-        int en_data[],int array_size);               //Èë¶ÓÒ»¸öÕûĞÍÊı×é
-bool dequeue(Queue* queue);                               //³ö¶Ó
-void print(Queue* queue);                                   //¸ñÊ½»¯Êä³ö¶ÓÁĞ
+        int en_data[],int array_size);               //å…¥é˜Ÿä¸€ä¸ªæ•´å‹æ•°ç»„
+bool dequeue(Queue* queue);                               //å‡ºé˜Ÿ
+void print(Queue* queue);                                   //æ ¼å¼åŒ–è¾“å‡ºé˜Ÿåˆ—
 
 /*
-* queue         ĞèÒª²Ù×÷µÄ¶ÓÁĞÖ¸Õë
+* queue         éœ€è¦æ“ä½œçš„é˜Ÿåˆ—æŒ‡é’ˆ
 * */
 void init(Queue* queue){
     queue->top=0;
@@ -37,42 +37,42 @@ void init(Queue* queue){
     queue->initalled=true;
 }
 /*
-*  queue               ĞèÒª²Ù×÷µÄ¶ÓÁĞÖ¸Õë
-*  en_data          ĞèÒª Èë¶ÓµÄÕûĞÍÊı
+*  queue               éœ€è¦æ“ä½œçš„é˜Ÿåˆ—æŒ‡é’ˆ
+*  en_data          éœ€è¦ å…¥é˜Ÿçš„æ•´å‹æ•°
 * */
 bool enqueue(Queue* queue, int en_data){
-    //ÅĞ¶Ï¶ÓÁĞÊÇ·ñÒÑ¾­³õÊ¼»¯£¬ÈôÃ»ÓĞÔò³õÊ¼»¯
+    //åˆ¤æ–­é˜Ÿåˆ—æ˜¯å¦å·²ç»åˆå§‹åŒ–ï¼Œè‹¥æ²¡æœ‰åˆ™åˆå§‹åŒ–
     if (!queue->initalled){
         init(queue);
     }
-    //Èë¶Ó»áµ¼ÖÂÊı¾İÒç³öÊ±£¬Èë¶ÓÊ§°Ü
+    //å…¥é˜Ÿä¼šå¯¼è‡´æ•°æ®æº¢å‡ºæ—¶ï¼Œå…¥é˜Ÿå¤±è´¥
     if(queue->tail>= DATASIZE){
         return false;
     }
-    //Èë¶Ó£¬tail+1£¬size+1
+    //å…¥é˜Ÿï¼Œtail+1ï¼Œsize+1
     queue->data[queue->tail++]=en_data;
     queue->size++;
 
     return true;
 }
 /*
-*  queue               ĞèÒª²Ù×÷µÄ¶ÓÁĞÖ¸Õë
-*  en_data          ĞèÒª Èë¶ÓµÄÕûĞÍÊı×é
-*  array_size   ÕûĞÍÊı×éµÄ´óĞ¡
+*  queue               éœ€è¦æ“ä½œçš„é˜Ÿåˆ—æŒ‡é’ˆ
+*  en_data          éœ€è¦ å…¥é˜Ÿçš„æ•´å‹æ•°ç»„
+*  array_size   æ•´å‹æ•°ç»„çš„å¤§å°
 * */
 bool enqueue_array(Queue *queue, int en_data[],
         int array_size){
     int i;
 
-    //Êı×é´óĞ¡Öµ×÷Îï£¬Èë¶ÓÊ§°Ü
+    //æ•°ç»„å¤§å°å€¼ä½œç‰©ï¼Œå…¥é˜Ÿå¤±è´¥
     if (array_size<0){
         return false;
     }
-    //ÅĞ¶Ï¶ÓÁĞÊÇ·ñÒÑ¾­³õÊ¼»¯£¬ÈôÃ»ÓĞÔò³õÊ¼»¯
+    //åˆ¤æ–­é˜Ÿåˆ—æ˜¯å¦å·²ç»åˆå§‹åŒ–ï¼Œè‹¥æ²¡æœ‰åˆ™åˆå§‹åŒ–
     if (!queue->initalled){
         init(queue);
     }
-    //Èë¶Ó»áµ¼ÖÂÊı¾İÒç³öÊ±£¬Èë¶ÓÊ§°Ü
+    //å…¥é˜Ÿä¼šå¯¼è‡´æ•°æ®æº¢å‡ºæ—¶ï¼Œå…¥é˜Ÿå¤±è´¥
     if(queue->tail+array_size> DATASIZE){
         return false;
     }
@@ -82,21 +82,21 @@ bool enqueue_array(Queue *queue, int en_data[],
     }
 }
 /*
-*  queue               ĞèÒª²Ù×÷µÄ¶ÓÁĞÖ¸Õë
+*  queue               éœ€è¦æ“ä½œçš„é˜Ÿåˆ—æŒ‡é’ˆ
 * */
 bool dequeue(Queue* queue){
-    //Èç¹û¶ÓÁĞÉĞÎ´³õÊ¼»¯»òÕß¶ÓÁĞ´óĞ¡Îª0£¬Ôò³ö¶ÓÊ§°Ü
+    //å¦‚æœé˜Ÿåˆ—å°šæœªåˆå§‹åŒ–æˆ–è€…é˜Ÿåˆ—å¤§å°ä¸º0ï¼Œåˆ™å‡ºé˜Ÿå¤±è´¥
     if((!queue->initalled)||queue->size==0){
         return false;
     }
-    //¶ÓÍ·top+1£¬size-1
+    //é˜Ÿå¤´top+1ï¼Œsize-1
     queue->top++;
     queue->size--;
 
     return true;
 }
 /*
-*  queue               ĞèÒª²Ù×÷µÄ¶ÓÁĞÖ¸Õë
+*  queue               éœ€è¦æ“ä½œçš„é˜Ÿåˆ—æŒ‡é’ˆ
 * */
 void print(Queue* queue){
     int i;

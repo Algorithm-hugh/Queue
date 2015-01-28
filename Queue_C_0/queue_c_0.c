@@ -39,31 +39,31 @@ void test_error(){
     int array[DATASIZE],i;
     int num=1;
 
-    //ÔÚÎ´³õÊ¼»¯Çé¿öÏÂ³öÁÐ
+    //åœ¨æœªåˆå§‹åŒ–æƒ…å†µä¸‹å‡ºåˆ—
     if (!dequeue(&queue)){
-        printf("£¨Î´³õÊ¼»¯Çé¿öÏÂ£©³ö¶ÓÊ§°Ü£¡\n");
+        printf("ï¼ˆæœªåˆå§‹åŒ–æƒ…å†µä¸‹ï¼‰å‡ºé˜Ÿå¤±è´¥ï¼\n");
     }
-    //»ñµÃÒ»¸ö´óÐ¡Îª¶ÓÁÐ³¤¶È×î´óÖµµÄÕûÐÍÊý×é
+    //èŽ·å¾—ä¸€ä¸ªå¤§å°ä¸ºé˜Ÿåˆ—é•¿åº¦æœ€å¤§å€¼çš„æ•´åž‹æ•°ç»„
     for ( i = 0; i < DATASIZE; i++) {
         array[i]=i;
     }
-    //½«Õâ¸öÊý×éÈë¶Ó£¬´òÓ¡¶ÓÁÐ³¤¶È£¨´óÐ¡£©
+    //å°†è¿™ä¸ªæ•°ç»„å…¥é˜Ÿï¼Œæ‰“å°é˜Ÿåˆ—é•¿åº¦ï¼ˆå¤§å°ï¼‰
     enqueue_array(&queue, array, 1024);
     printf("Queue Size: %d\n",queue.size);
 
-    //ÔÚ¶ÓÁÐ³äÂúÖ®ºóÈëÁÐÒ»¸öÊý
+    //åœ¨é˜Ÿåˆ—å……æ»¡ä¹‹åŽå…¥åˆ—ä¸€ä¸ªæ•°
     if(!enqueue(&queue, num)){
-        printf("£¨Èë¶Ó²Ù×÷»áµ¼ÖÂÊý¾ÝÒç³ö£©Èë¶ÓÊ§°Ü\n");
+        printf("ï¼ˆå…¥é˜Ÿæ“ä½œä¼šå¯¼è‡´æ•°æ®æº¢å‡ºï¼‰å…¥é˜Ÿå¤±è´¥\n");
     }
 
-    //¶ÓÁÐÖÐÊý¾ÝÈ«²¿³öÁÐ,´òÓ¡¶ÓÁÐ³¤¶È£¨´óÐ¡£©
+    //é˜Ÿåˆ—ä¸­æ•°æ®å…¨éƒ¨å‡ºåˆ—,æ‰“å°é˜Ÿåˆ—é•¿åº¦ï¼ˆå¤§å°ï¼‰
     for (i = queue.size; i >0; i--) {
         dequeue(&queue);
     }
     printf("Queue Size: %d\n",queue.size);
 
-    //Êý¾ÝÈ«²¿³öÁÐºóÔÙ´ÎÖ´ÐÐ³öÁÐ
+    //æ•°æ®å…¨éƒ¨å‡ºåˆ—åŽå†æ¬¡æ‰§è¡Œå‡ºåˆ—
     if (!dequeue(&queue)){
-        printf("£¨¶ÓÁÐÖÐÃ»ÓÐÊý¾ÝÊ±³ö¶Ó£©³ö¶ÓÊ§°Ü£¡\n");
+        printf("ï¼ˆé˜Ÿåˆ—ä¸­æ²¡æœ‰æ•°æ®æ—¶å‡ºé˜Ÿï¼‰å‡ºé˜Ÿå¤±è´¥ï¼\n");
     }
 }
