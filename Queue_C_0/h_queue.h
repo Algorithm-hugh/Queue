@@ -1,8 +1,8 @@
 /*
-* 作者：silverHugh
-* 时间：2015年1月28日
-*内容：队列实现
-* 语言：C语言
+*	作者：silverHugh
+*	时间：2015年1月28日
+*	内容：队列实现
+*	语言：C语言
 * */
 #include <stdbool.h>
 #include <stdio.h>
@@ -20,12 +20,12 @@ struct Queue{
 
 typedef struct Queue Queue;
 
-void init(Queue* queue);                                     //初始化队列
-bool enqueue(Queue *queue, int en_data);   //入队一个整型数
+void init(Queue* queue);                    //初始化队列
+bool enqueue(Queue *queue, int en_data);    //入队一个整型数
 bool enqueue_array(Queue *queue,
-        int en_data[],int array_size);               //入队一个整型数组
-bool dequeue(Queue* queue);                               //出队
-void print(Queue* queue);                                   //格式化输出队列
+        int en_data[],int array_size);      //入队一个整型数组
+bool dequeue(Queue* queue);                 //出队
+void print(Queue* queue);                   //格式化输出队列
 
 /*
 * queue         需要操作的队列指针
@@ -37,8 +37,8 @@ void init(Queue* queue){
     queue->initalled=true;
 }
 /*
-*  queue               需要操作的队列指针
-*  en_data          需要 入队的整型数
+*  queue        需要操作的队列指针
+*  en_data      需要入队的整型数
 * */
 bool enqueue(Queue* queue, int en_data){
     //判断队列是否已经初始化，若没有则初始化
@@ -56,9 +56,9 @@ bool enqueue(Queue* queue, int en_data){
     return true;
 }
 /*
-*  queue               需要操作的队列指针
-*  en_data          需要 入队的整型数组
-*  array_size   整型数组的大小
+*  queue            需要操作的队列指针
+*  en_data          需要入队的整型数组
+*  array_size       整型数组的大小
 * */
 bool enqueue_array(Queue *queue, int en_data[],
         int array_size){
@@ -82,7 +82,7 @@ bool enqueue_array(Queue *queue, int en_data[],
     }
 }
 /*
-*  queue               需要操作的队列指针
+*  queue						需要操作的队列指针
 * */
 bool dequeue(Queue* queue){
     //如果队列尚未初始化或者队列大小为0，则出队失败
@@ -96,7 +96,7 @@ bool dequeue(Queue* queue){
     return true;
 }
 /*
-*  queue               需要操作的队列指针
+*  queue						需要操作的队列指针
 * */
 void print(Queue* queue){
     int i;
