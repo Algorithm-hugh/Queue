@@ -15,7 +15,7 @@ struct Queue{
     int data[DATASIZE];
 
     int size;
-    bool initalled;
+    bool initialled;
 };
 
 typedef struct Queue Queue;
@@ -34,15 +34,18 @@ void init(Queue* queue){
     queue->top=0;
     queue->tail=0;
     queue->size=0;
-    queue->initalled=true;
+    queue->initialled=true;
+	
+	return;
 }
 /*
 *  queue        需要操作的队列指针
 *  en_data      需要入队的整型数
+*  返回值     	入队成功返回true，失败返回false
 * */
 bool enqueue(Queue* queue, int en_data){
     //判断队列是否已经初始化，若没有则初始化
-    if (!queue->initalled){
+    if (!queue->initialled){
         init(queue);
     }
     //入队会导致数据溢出时，入队失败
@@ -59,17 +62,18 @@ bool enqueue(Queue* queue, int en_data){
 *  queue            需要操作的队列指针
 *  en_data          需要入队的整型数组
 *  array_size       整型数组的大小
+*  返回值     		数组入队成功返回true，失败返回false
 * */
 bool enqueue_array(Queue *queue, int en_data[],
         int array_size){
     int i;
 
-    //数组大小值作物，入队失败
+    //数组大小值错误，入队失败
     if (array_size<0){
         return false;
     }
     //判断队列是否已经初始化，若没有则初始化
-    if (!queue->initalled){
+    if (!queue->initialled){
         init(queue);
     }
     //入队会导致数据溢出时，入队失败
@@ -80,13 +84,16 @@ bool enqueue_array(Queue *queue, int en_data[],
     for (i = 0; i <array_size; i++) {
         enqueue(queue, en_data[i]);
     }
+	
+	return true;
 }
 /*
-*  queue						需要操作的队列指针
+*  queue				需要操作的队列指针
+*  返回值     			出队成功返回true，失败返回false
 * */
 bool dequeue(Queue* queue){
     //如果队列尚未初始化或者队列大小为0，则出队失败
-    if((!queue->initalled)||queue->size==0){
+    if((!queue->initialled)||queue->size==0){
         return false;
     }
     //队头top+1，size-1
@@ -102,7 +109,7 @@ void print(Queue* queue){
     int i;
     int serial_num;
 
-    if(!queue->initalled){
+    if(!queue->initialled){
         init(queue);
     }
 
@@ -121,4 +128,6 @@ void print(Queue* queue){
         }
     }
     printf("=================\nEND\n");
+	
+	return;
 }

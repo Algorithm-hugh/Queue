@@ -19,6 +19,8 @@ void test(){
 
     dequeue(&queue);
     print(&queue);
+	
+	return;
 }
 
 void test_array(){
@@ -32,6 +34,8 @@ void test_array(){
     dequeue(&queue);
     dequeue(&queue);
     print(&queue);
+	
+	return;
 }
 
 void test_error(){
@@ -66,4 +70,6 @@ void test_error(){
     if (!dequeue(&queue)){
         printf("（队列中没有数据时出队）出队失败！\n");
     }
+	
+	return;
 }
